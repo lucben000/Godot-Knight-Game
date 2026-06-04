@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dh2p1jk7kd6cn"]
 
 [ext_resource type="Texture2D" uid="uid://geptdsj62x4b" path="res://brackeys_platformer_assets/sprites/slime_purple.png" id="1_is56j"]
+[ext_resource type="PackedScene" uid="uid://cmotmwtxq38w5" path="res://scenes/killzone.tscn" id="2_lf354"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf354"]
 atlas = ExtResource("1_is56j")
@@ -47,6 +48,8 @@ size = Vector2(10, 12)
 sprite_frames = SubResource("SpriteFrames_8p4td")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1886516680]
+[node name="Killzone" parent="." unique_id=1301478783 instance=ExtResource("2_lf354")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1886516680]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_xw7n4")
