@@ -181,6 +181,157 @@ texture = ExtResource("2_yqjtg")
 [sub_resource type="TileSet" id="TileSet_lnu2h"]
 sources/0 = SubResource("TileSetAtlasSource_yqjtg")
 
+[sub_resource type="Animation" id="Animation_dinhu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(958, 53)]
+}
+
+[sub_resource type="Animation" id="Animation_kvuet"]
+resource_name = "move"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(958, 53), Vector2(958, 246)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trtic"]
+_data = {
+&"RESET": SubResource("Animation_dinhu"),
+&"move": SubResource("Animation_kvuet")
+}
+
+[sub_resource type="Animation" id="Animation_p57ef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Platforms big/green_platform5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(677, 242)]
+}
+
+[sub_resource type="Animation" id="Animation_u5sy4"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Platforms big/green_platform5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(677, 242), Vector2(809, 242)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gee14"]
+_data = {
+&"RESET": SubResource("Animation_p57ef"),
+&"move": SubResource("Animation_u5sy4")
+}
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(624, -25)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "move"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.0333333, 3.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(624, -25), Vector2(624, -203)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"move": SubResource("Animation_0tnpc")
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(915, -203)]
+}
+
+[sub_resource type="Animation" id="Animation_kvpfn"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(915, -203), Vector2(1071, -203)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dinhu"]
+_data = {
+&"RESET": SubResource("Animation_vtaks"),
+&"move": SubResource("Animation_kvpfn")
+}
+
 [node name="Game" type="Node2D" unique_id=445110486]
 
 [node name="Player" parent="." unique_id=1632673687 instance=ExtResource("1_uwrxv")]
@@ -240,16 +391,33 @@ position = Vector2(962, -112)
 position = Vector2(257, -26)
 
 [node name="green_platform6" parent="Platforms big" unique_id=1905372074 instance=ExtResource("6_u5sy4")]
-position = Vector2(959, 53)
+position = Vector2(958, 53)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms big/green_platform6" unique_id=1039916816]
+libraries/ = SubResource("AnimationLibrary_trtic")
+autoplay = &"move"
 
 [node name="green_platform5" parent="Platforms big" unique_id=1249227792 instance=ExtResource("6_u5sy4")]
-position = Vector2(677, 244)
+position = Vector2(677, 242)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms big/green_platform5" unique_id=568663619]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_gee14")
+autoplay = &"move"
 
 [node name="green_platform3" parent="Platforms big" unique_id=1312948190 instance=ExtResource("6_u5sy4")]
-position = Vector2(623, -30)
+position = Vector2(624, -25)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms big/green_platform3" unique_id=782773235]
+libraries/ = SubResource("AnimationLibrary_vtaks")
+autoplay = &"move"
 
 [node name="green_platform4" parent="Platforms big" unique_id=1086404818 instance=ExtResource("6_u5sy4")]
-position = Vector2(982, -205)
+position = Vector2(915, -203)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms big/green_platform4" unique_id=1352012843]
+libraries/ = SubResource("AnimationLibrary_dinhu")
+autoplay = &"move"
 
 [node name="Enemies" type="Node" parent="." unique_id=1671161650]
 
