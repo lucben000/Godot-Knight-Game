@@ -13,4 +13,4 @@ func minus_coins():
 	if coins == 0:
 		text = "Congrats you win the game"
 	else:
-		text = "You are missing " + str(coins) + " coins"
+		text = "You are missing " + str(coins) + " coins. Collect them to beat the game."

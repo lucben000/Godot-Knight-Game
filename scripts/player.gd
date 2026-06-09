@@ -11,6 +11,7 @@ enum playerState { ALIVE, DEAD }
 @export var playerStatus : playerState
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sfx: AudioStreamPlayer2D = $SFX
 
 
 func _ready() -> void:
@@ -37,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	if playerStatus == playerState.ALIVE:
 		# Handle jump.
 		if Input.is_action_just_pressed("jump") and is_on_floor():
+			sfx.play()
 			velocity.y = JUMP_VELOCITY
 		# Movement speed
 		if directionX:

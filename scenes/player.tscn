@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dippeggkotrr7" path="res://brackeys_platformer_assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cw3pxy8hd7b5g" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="AudioStream" uid="uid://2wqvo1t00pa1" path="res://brackeys_platformer_assets/sounds/jump.wav" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("1_3vyb7")
@@ -287,13 +288,17 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1318427331]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_eow3j")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.12463312
+frame_progress = 0.18428095
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1770946691]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_g2els")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=568669097]
+stream = ExtResource("3_qhqgy")
+bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2074369306]
 collision_layer = 4
