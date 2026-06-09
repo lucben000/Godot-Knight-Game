@@ -7,12 +7,21 @@ const JUMP_VELOCITY = -250.0
 var ladderDetect = false
 var ladderSpeed = 200
 
+enum playerState { ALIVE, DEAD }
+@export var playerStatus : playerState
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
+func _ready() -> void:
+	playerStatus = playerState.ALIVE
+
+#Physics
 func _physics_process(delta: float) -> void:
 	
+	# Get the input direction and handle the movement/deceleration.
 	var directionY := Input.get_axis("up", "down")
+	var directionX := Input.get_axis("left", "right")
 	
 	#Ladder Climbing
 	if ladderDetect:
@@ -25,44 +34,62 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if playerStatus == playerState.ALIVE:
+		# Handle jump.
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		# Movement speed
+		if directionX:
+			velocity.x = directionX * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			
+		
+	else:
+		directionX = 0.0
+		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+		directionY = 0.0
+	
+	
+	playAnimations(directionX, directionY)
+	move_and_slide()
+	
+	
 
-	# Get the input direction and handle the movement/deceleration.
-	var directionX := Input.get_axis("left", "right")
+
+# Plays animations
+func playAnimations(directionX, directionY):
+	if playerStatus == playerState.DEAD:
+		animated_sprite.play("death")
+	else:
+		if is_on_floor():
+			if directionX == 0:
+				animated_sprite.play("idle")
+			else:
+				animated_sprite.play("run")
+		elif ladderDetect:
+			if directionY == 0:
+				animated_sprite.play("idle")
+			else:
+				animated_sprite.play("climbladder")
+		else:
+			animated_sprite.play("jump")
 	
 	# Flips sprite
 	if directionX > 0:
 		animated_sprite.flip_h = false
 	elif directionX < 0:
 		animated_sprite.flip_h = true
-	
-	# Plays animations
-	if is_on_floor():
-		if directionX == 0:
-			animated_sprite.play("idle")
-		else:
-			animated_sprite.play("run")
-	elif ladderDetect:
-		if directionY == 0:
-			animated_sprite.play("idle")
-		else:
-			animated_sprite.play("climbladder")
-	else:
-		animated_sprite.play("jump")
-	
-	# Movement speed
-	if directionX:
-		velocity.x = directionX * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
-	
-
+#--------------------------Signals--------------------------------------#
 #Detect ladder climbing
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	ladderDetect = true
+	#print('climbing')
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	ladderDetect = false
+	#print('not climbing')
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	playerStatus = playerState.DEAD
+	#print(playerStatus)
