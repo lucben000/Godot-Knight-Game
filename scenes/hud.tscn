@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://drdfkhgqlhupl"]
 
 [ext_resource type="Script" uid="uid://n54d43g1t8wa" path="res://scripts/hud.gd" id="1_5ysmq"]
-[ext_resource type="FontFile" uid="uid://cjojserjflvca" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_oo0fn"]
+[ext_resource type="FontFile" uid="uid://cjojserjflvca" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_oo0fn"]
 
 [node name="HUD" type="CanvasLayer" unique_id=255473197]
 script = ExtResource("1_5ysmq")
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=1471960866]
-offset_left = 864.0
-offset_top = 24.0
-offset_right = 1112.0
-offset_bottom = 56.0
+offset_left = 868.0
+offset_top = 27.0
+offset_right = 1116.0
+offset_bottom = 59.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_oo0fn")
 theme_override_font_sizes/font_size = 32
