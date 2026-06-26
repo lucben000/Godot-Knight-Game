@@ -5,6 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://dphtr8fq1ybj" path="res://assets/kenney_ui-pack-pixel-adventure/Tilesheets/Small tiles/Thick outline/tilemap.png" id="2_3y6qt"]
 [ext_resource type="FontFile" uid="uid://c6dqmv5s72fhk" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="2_b5e6c"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y6qt"]
+bg_color = Color(1, 0.84705883, 0.70980394, 1)
+expand_margin_left = 575.0
+expand_margin_top = 325.0
+expand_margin_right = 575.0
+expand_margin_bottom = 325.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ld3xo"]
+texture = ExtResource("1_tner2")
+expand_margin_left = 575.0
+expand_margin_top = 325.0
+expand_margin_right = 575.0
+expand_margin_bottom = 325.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3y6qt"]
 atlas = ExtResource("2_3y6qt")
 region = Rect2(68, 2, 16, 12)
@@ -20,23 +34,21 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=880641808]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=619250185]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.84602886, 0.7096164, 1)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=203276668]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_tner2")
+[node name="Panel" type="Panel" parent="PanelContainer" unique_id=1632241977]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3y6qt")
+
+[node name="Panel2" type="Panel" parent="PanelContainer" unique_id=1813959]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ld3xo")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1338136789]
 layout_mode = 1
