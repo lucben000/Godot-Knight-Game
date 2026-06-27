@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cg8vlyricpyni"]
 
 [ext_resource type="Texture2D" uid="uid://dsdsqk43ruvil" path="res://assets/kenney_ui-pack/PNG/Grey/Default/button_rectangle_depth_border.png" id="1_86ygs"]
+[ext_resource type="Script" uid="uid://d3akj8cxo2m1a" path="res://scripts/menu_ui.gd" id="1_ld3xo"]
 [ext_resource type="Texture2D" uid="uid://b871h4he0spsu" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_square_flat.png" id="1_tner2"]
 [ext_resource type="Texture2D" uid="uid://dphtr8fq1ybj" path="res://assets/kenney_ui-pack-pixel-adventure/Tilesheets/Small tiles/Thick outline/tilemap.png" id="2_3y6qt"]
 [ext_resource type="FontFile" uid="uid://c6dqmv5s72fhk" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="2_b5e6c"]
@@ -23,7 +24,7 @@ expand_margin_bottom = 325.0
 atlas = ExtResource("2_3y6qt")
 region = Rect2(68, 2, 16, 12)
 
-[node name="MenuUI" type="Control" unique_id=1011279020]
+[node name="MenuUI" type="Control" unique_id=1011279020 node_paths=PackedStringArray("play_button", "settings_button", "quit_button")]
 layout_mode = 3
 anchor_right = 0.694
 anchor_bottom = 0.772
@@ -33,6 +34,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_ld3xo")
+play_button = NodePath("VBoxContainer2/VBoxContainer/PlayButton")
+settings_button = NodePath("VBoxContainer2/VBoxContainer/SettingsButton")
+quit_button = NodePath("VBoxContainer2/VBoxContainer/QuitButton")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=619250185]
 layout_mode = 1
@@ -66,7 +71,7 @@ size_flags_vertical = 0
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 50
 
-[node name="Button4" type="Button" parent="VBoxContainer2/MarginContainer" unique_id=958134152]
+[node name="CloseButton" type="Button" parent="VBoxContainer2/MarginContainer" unique_id=958134152]
 visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -81,13 +86,13 @@ layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer2/VBoxContainer" unique_id=1647430825]
+[node name="PlayButton" type="Button" parent="VBoxContainer2/VBoxContainer" unique_id=1647430825]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 icon = ExtResource("1_86ygs")
 
-[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/Button" unique_id=1609249959]
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/PlayButton" unique_id=1609249959]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -106,13 +111,13 @@ text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="VBoxContainer2/VBoxContainer" unique_id=645322]
+[node name="SettingsButton" type="Button" parent="VBoxContainer2/VBoxContainer" unique_id=645322]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 icon = ExtResource("1_86ygs")
 
-[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/Button2" unique_id=1068144074]
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/SettingsButton" unique_id=1068144074]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,13 +136,13 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button3" type="Button" parent="VBoxContainer2/VBoxContainer" unique_id=1563413289]
+[node name="QuitButton" type="Button" parent="VBoxContainer2/VBoxContainer" unique_id=1563413289]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 icon = ExtResource("1_86ygs")
 
-[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/Button3" unique_id=764917684]
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer/QuitButton" unique_id=764917684]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
