@@ -24,7 +24,7 @@ expand_margin_bottom = 325.0
 atlas = ExtResource("2_3y6qt")
 region = Rect2(68, 2, 16, 12)
 
-[node name="MenuUI" type="Control" unique_id=1011279020 node_paths=PackedStringArray("play_button", "settings_button", "quit_button")]
+[node name="MenuUI" type="Control" unique_id=1011279020]
 layout_mode = 3
 anchor_right = 0.694
 anchor_bottom = 0.772
@@ -35,9 +35,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_ld3xo")
-play_button = NodePath("VBoxContainer2/VBoxContainer/PlayButton")
-settings_button = NodePath("VBoxContainer2/VBoxContainer/SettingsButton")
-quit_button = NodePath("VBoxContainer2/VBoxContainer/QuitButton")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=619250185]
 layout_mode = 1
@@ -160,3 +157,7 @@ theme_override_font_sizes/font_size = 32
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

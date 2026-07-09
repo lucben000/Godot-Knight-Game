@@ -1,21 +1,23 @@
 extends Control
 
-var settingsScene = preload("res://scenes/settings_ui.tscn")
-var settings = settingsScene.instantiate()
-@export var play_button: Button
-@export var settings_button: Button
-@export var quit_button: Button
+var settings: Control
 
-func _process(delta: float) -> void:
-	if play_button.button_pressed:
-		#switch to level 1
-		print("playing")
-	
-	if settings_button.button_pressed:
-		#popup settings ui
-		
+func _ready() -> void:
+	settings = preload("res://scenes/settings_ui.tscn").instantiate()
+
+func _on_play_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_settings_button_pressed() -> void:
+	#var settingsScene = preload("res://scenes/settings_ui.tscn")
+	#var settings = settingsScene.instantiate()
+	if has_node("./SettingsUI"):
+		settings.visible = true
+		print("open settings")
+	else:
 		add_child(settings)
-		print("settings")
-	
-	if quit_button.button_pressed:
-		get_tree().quit()
+		print("open settings")
+
+func _on_quit_button_pressed() -> void:
+	print("quitting game")
+	get_tree().quit()
