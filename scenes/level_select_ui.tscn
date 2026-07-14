@@ -1,0 +1,253 @@
+[gd_scene format=3 uid="uid://cap3btbnwcluk"]
+
+[ext_resource type="Texture2D" uid="uid://dcbtk6ux3vqr6" path="res://assets/kenney_ui-pack/PNG/Green/Default/button_square_depth_flat.png" id="1_6dv70"]
+[ext_resource type="Texture2D" uid="uid://dt8x2yhogu2j4" path="res://assets/BG/battleback10.png" id="1_i85xl"]
+[ext_resource type="Script" uid="uid://bl8rbhui56olx" path="res://scripts/level_select_ui.gd" id="1_pn4fm"]
+[ext_resource type="FontFile" uid="uid://c6dqmv5s72fhk" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_d0ycl"]
+[ext_resource type="Texture2D" uid="uid://bc11ehlltsow5" path="res://assets/kenney_ui-pack/PNG/Grey/Default/button_square_border.png" id="4_0ys4s"]
+[ext_resource type="Texture2D" uid="uid://dphtr8fq1ybj" path="res://assets/kenney_ui-pack-pixel-adventure/Tilesheets/Small tiles/Thick outline/tilemap.png" id="4_7wwxp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0ycl"]
+bg_color = Color(0.2509804, 0.2509804, 0.2509804, 0.48235294)
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0ycl"]
+texture = ExtResource("1_6dv70")
+expand_margin_left = 500.0
+expand_margin_top = 250.0
+expand_margin_right = 500.0
+expand_margin_bottom = 250.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn4fm"]
+atlas = ExtResource("4_7wwxp")
+region = Rect2(68, 2, 16, 12)
+
+[node name="LevelSelectUI" type="Control" unique_id=358666503 node_paths=PackedStringArray("level_select_ui")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_pn4fm")
+level_select_ui = NodePath(".")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1687209526]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1261242462]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_i85xl")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1827793600]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0ycl")
+
+[node name="Panel" type="Panel" parent="PanelContainer" unique_id=1126119555]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d0ycl")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=347439471]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -184.5
+offset_right = 308.0
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=595083946]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=595120083]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=2086138861]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=842965537]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_d0ycl")
+theme_override_font_sizes/font_size = 40
+text = "Level Select"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1712341702]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_left = 50
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=652899929]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = SubResource("AtlasTexture_pn4fm")
+icon_alignment = 1
+expand_icon = true
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1380688065]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 200
+theme_override_constants/v_separation = 75
+columns = 3
+
+[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1361387028]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("4_0ys4s")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Tutorial" unique_id=757290020]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -16.0
+offset_right = 14.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_d0ycl")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="Level 1" type="Button" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=505596719]
+layout_mode = 2
+icon = ExtResource("4_0ys4s")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Level 1" unique_id=423647056]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -16.0
+offset_right = 14.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_d0ycl")
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="Level 2" type="Button" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=782424624]
+layout_mode = 2
+icon = ExtResource("4_0ys4s")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Level 2" unique_id=1820201354]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -16.0
+offset_right = 14.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_d0ycl")
+theme_override_font_sizes/font_size = 32
+text = "2"
+
+[node name="Level 3" type="Button" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1081985487]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("4_0ys4s")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Level 3" unique_id=712880516]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -16.0
+offset_right = 14.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_d0ycl")
+theme_override_font_sizes/font_size = 32
+text = "3"
+
+[node name="Level 4" type="Button" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=2063713534]
+layout_mode = 2
+icon = ExtResource("4_0ys4s")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Level 4" unique_id=324844314]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -16.0
+offset_right = 14.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_d0ycl")
+theme_override_font_sizes/font_size = 32
+text = "4"
+
+[node name="Level 5" type="Button" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1618868718]
+layout_mode = 2
+icon = ExtResource("4_0ys4s")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/Level 5" unique_id=1696355643]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -16.0
+offset_right = 14.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_d0ycl")
+theme_override_font_sizes/font_size = 32
+text = "5"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

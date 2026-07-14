@@ -24,7 +24,7 @@ expand_margin_bottom = 325.0
 atlas = ExtResource("2_3y6qt")
 region = Rect2(68, 2, 16, 12)
 
-[node name="MenuUI" type="Control" unique_id=1011279020]
+[node name="MenuUI" type="Control" unique_id=1011279020 node_paths=PackedStringArray("menu_ui")]
 layout_mode = 3
 anchor_right = 0.694
 anchor_bottom = 0.772
@@ -35,6 +35,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_ld3xo")
+menu_ui = NodePath(".")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=619250185]
 layout_mode = 1

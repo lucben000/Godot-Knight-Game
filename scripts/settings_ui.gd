@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _on_close_button_pressed() -> void:
 	print("close settings")
-	settings_ui.visible = false
+	get_parent().remove_child(settings_ui)
 
 func _on_masterslider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(masterVolume, linear_to_db(value))
