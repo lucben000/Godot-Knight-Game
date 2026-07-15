@@ -25,10 +25,13 @@ region = Rect2(68, 2, 16, 12)
 
 [node name="SettingsUI" type="Control" unique_id=1950419210 node_paths=PackedStringArray("settings_ui")]
 layout_mode = 3
-anchor_right = 0.47300002
-anchor_bottom = 0.45100003
-offset_right = 0.104003906
-offset_bottom = -0.24801636
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.052001953
+offset_right = 0.052001953
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k6eqp")
@@ -54,31 +57,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = -15
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1107625561]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 30
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=42930800]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=372654205]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-
-[node name="Label4" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1140914868]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8r1oi")
-theme_override_font_sizes/font_size = 40
-text = "Settings"
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=372654205]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 
-[node name="CloseButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=590258099]
+[node name="CloseButton" type="Button" parent="VBoxContainer/MarginContainer3" unique_id=590258099]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -86,6 +74,17 @@ size_flags_vertical = 4
 icon = SubResource("AtlasTexture_k6eqp")
 icon_alignment = 1
 expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1107625561]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label4" type="Label" parent="VBoxContainer/MarginContainer" unique_id=1140914868]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8r1oi")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1146794847]
 layout_mode = 2
@@ -151,7 +150,7 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer3/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Masterslider" to="." method="_on_masterslider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/BGMslider" to="." method="_on_bg_mslider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/SFXslider" to="." method="_on_sf_xslider_value_changed"]

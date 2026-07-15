@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dsdsqk43ruvil" path="res://assets/kenney_ui-pack/PNG/Grey/Default/button_rectangle_depth_border.png" id="1_86ygs"]
 [ext_resource type="Script" uid="uid://d3akj8cxo2m1a" path="res://scripts/menu_ui.gd" id="1_ld3xo"]
 [ext_resource type="Texture2D" uid="uid://b871h4he0spsu" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_square_flat.png" id="1_tner2"]
-[ext_resource type="Texture2D" uid="uid://dphtr8fq1ybj" path="res://assets/kenney_ui-pack-pixel-adventure/Tilesheets/Small tiles/Thick outline/tilemap.png" id="2_3y6qt"]
 [ext_resource type="FontFile" uid="uid://c6dqmv5s72fhk" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="2_b5e6c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y6qt"]
@@ -20,16 +19,15 @@ expand_margin_top = 325.0
 expand_margin_right = 575.0
 expand_margin_bottom = 325.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3y6qt"]
-atlas = ExtResource("2_3y6qt")
-region = Rect2(68, 2, 16, 12)
-
 [node name="MenuUI" type="Control" unique_id=1011279020 node_paths=PackedStringArray("menu_ui")]
 layout_mode = 3
-anchor_right = 0.694
-anchor_bottom = 0.772
-offset_right = 0.5119629
-offset_bottom = -0.25601196
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.25598145
+offset_right = 0.25598145
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -62,22 +60,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=1267519139]
+[node name="Label" type="Label" parent="VBoxContainer2" unique_id=929333967]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 50
-
-[node name="CloseButton" type="Button" parent="VBoxContainer2/MarginContainer" unique_id=958134152]
-visible = false
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-icon = SubResource("AtlasTexture_3y6qt")
-icon_alignment = 1
-expand_icon = true
+theme_override_fonts/font = ExtResource("2_b5e6c")
+theme_override_font_sizes/font_size = 54
+text = "Knight Game"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2" unique_id=1523339873]
 layout_mode = 2
