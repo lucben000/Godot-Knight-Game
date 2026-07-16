@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://bbsxvjie3fy5p"]
+
+[ext_resource type="Script" uid="uid://cmbwqq7ksnplw" path="res://scripts/pause_ui.gd" id="1_utk7g"]
+[ext_resource type="Texture2D" uid="uid://crg03proa20dc" path="res://assets/kenney_ui-pack/PNG/Green/Default/button_rectangle_depth_flat.png" id="1_ypbrs"]
+[ext_resource type="FontFile" uid="uid://c6dqmv5s72fhk" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="2_0vm74"]
+[ext_resource type="Texture2D" uid="uid://c6qnak61eenc4" path="res://assets/kenney_ui-pack/PNG/Grey/Default/button_square_depth_flat.png" id="2_vcehk"]
+[ext_resource type="Texture2D" uid="uid://daehjqq18q3wy" path="res://assets/myAssets/ResumeIcon.png" id="3_4j456"]
+[ext_resource type="Texture2D" uid="uid://cwhdlm2i118ou" path="res://assets/myAssets/SettingsIcon.png" id="4_0vm74"]
+[ext_resource type="Texture2D" uid="uid://bs18te0iorhlq" path="res://assets/myAssets/ExitIcon.png" id="5_utk7g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vm74"]
+bg_color = Color(0, 0, 0, 0.3647059)
+expand_margin_left = 600.0
+expand_margin_top = 600.0
+expand_margin_right = 600.0
+expand_margin_bottom = 600.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3egln"]
+texture = ExtResource("1_ypbrs")
+expand_margin_left = 300.0
+expand_margin_top = 100.0
+expand_margin_right = 300.0
+expand_margin_bottom = 100.0
+
+[node name="PauseUI" type="Control" unique_id=2120655701 node_paths=PackedStringArray("pause_ui")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_utk7g")
+pause_ui = NodePath(".")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1090648475]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=2094442761]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0vm74")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer" unique_id=1147362363]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_3egln")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=200301960]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -63.5
+offset_right = 158.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1787734954]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_0vm74")
+theme_override_font_sizes/font_size = 40
+text = "Paused"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1405903900]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Resume" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=983164111]
+layout_mode = 2
+icon = ExtResource("2_vcehk")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/Resume" unique_id=1312064726]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_4j456")
+
+[node name="Settings" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1712258999]
+layout_mode = 2
+icon = ExtResource("2_vcehk")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/Settings" unique_id=1869621365]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_0vm74")
+
+[node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=950935428]
+layout_mode = 2
+icon = ExtResource("2_vcehk")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/Quit" unique_id=537950465]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_utk7g")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

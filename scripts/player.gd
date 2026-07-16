@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -250.0
 
 var ladderDetect = false
 var ladderSpeed = 200
+var pause: Control
 
 enum playerState { ALIVE, DEAD }
 @export var playerStatus : playerState
@@ -16,6 +17,7 @@ enum playerState { ALIVE, DEAD }
 
 func _ready() -> void:
 	playerStatus = playerState.ALIVE
+	pause = load("res://scenes/pause_ui.tscn").instantiate()
 
 #Physics
 func _physics_process(delta: float) -> void:
@@ -51,6 +53,10 @@ func _physics_process(delta: float) -> void:
 		directionX = 0.0
 		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
 		directionY = 0.0
+	
+	if Input.is_action_just_pressed("pause"):
+		add_child(pause)
+		print("paused")
 	
 	
 	playAnimations(directionX, directionY)

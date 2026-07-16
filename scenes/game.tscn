@@ -4,6 +4,4 @@
 
 [node name="Game" type="Node2D" unique_id=445110486]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=512225613]
-
 [node name="MenuUI" parent="." unique_id=1011279020 instance=ExtResource("1_uwrxv")]

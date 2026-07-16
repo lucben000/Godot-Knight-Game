@@ -42,16 +42,18 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_pn4fm")
 level_select_ui = NodePath(".")
-label_1 = NodePath("VBoxContainer/GridContainer/Level 1/Label1")
-label_2 = NodePath("VBoxContainer/GridContainer/Level 2/Label2")
-label_3 = NodePath("VBoxContainer/GridContainer/Level 3/Label3")
-label_4 = NodePath("VBoxContainer/GridContainer/Level 4/Label4")
-label_5 = NodePath("VBoxContainer/GridContainer/Level 5/Label5")
+label_1 = NodePath("CanvasLayer2/VBoxContainer/GridContainer/Level 1/Label1")
+label_2 = NodePath("CanvasLayer2/VBoxContainer/GridContainer/Level 2/Label2")
+label_3 = NodePath("CanvasLayer2/VBoxContainer/GridContainer/Level 3/Label3")
+label_4 = NodePath("CanvasLayer2/VBoxContainer/GridContainer/Level 4/Label4")
+label_5 = NodePath("CanvasLayer2/VBoxContainer/GridContainer/Level 5/Label5")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1687209526]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1370347363]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer2" unique_id=1687209526]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1261242462]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/CanvasLayer" unique_id=1261242462]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -61,21 +63,26 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_i85xl")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1827793600]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2" unique_id=1827793600]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d0ycl")
 
-[node name="Panel" type="Panel" parent="PanelContainer" unique_id=1126119555]
+[node name="Panel" type="Panel" parent="CanvasLayer2/PanelContainer" unique_id=1126119555]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d0ycl")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=595083946]
-layout_mode = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2" unique_id=595083946]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -308.0
 offset_top = -204.5
 offset_right = 308.0
@@ -84,7 +91,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=652899929]
+[node name="BackButton" type="Button" parent="CanvasLayer2/VBoxContainer" unique_id=652899929]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -93,14 +100,14 @@ icon = SubResource("AtlasTexture_pn4fm")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label4" type="Label" parent="VBoxContainer" unique_id=842965537]
+[node name="Label4" type="Label" parent="CanvasLayer2/VBoxContainer" unique_id=842965537]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_d0ycl")
 theme_override_font_sizes/font_size = 40
 text = "Level Select"
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=1380688065]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer2/VBoxContainer" unique_id=1380688065]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -108,13 +115,13 @@ theme_override_constants/h_separation = 200
 theme_override_constants/v_separation = 75
 columns = 3
 
-[node name="Tutorial" type="Button" parent="VBoxContainer/GridContainer" unique_id=1361387028]
+[node name="Tutorial" type="Button" parent="CanvasLayer2/VBoxContainer/GridContainer" unique_id=1361387028]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 icon = ExtResource("4_0ys4s")
 
-[node name="tLabel" type="Label" parent="VBoxContainer/GridContainer/Tutorial" unique_id=757290020]
+[node name="tLabel" type="Label" parent="CanvasLayer2/VBoxContainer/GridContainer/Tutorial" unique_id=757290020]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,11 +138,11 @@ theme_override_fonts/font = ExtResource("3_d0ycl")
 theme_override_font_sizes/font_size = 32
 text = "0"
 
-[node name="Level 1" type="Button" parent="VBoxContainer/GridContainer" unique_id=505596719]
+[node name="Level 1" type="Button" parent="CanvasLayer2/VBoxContainer/GridContainer" unique_id=505596719]
 layout_mode = 2
 icon = ExtResource("4_0ys4s")
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/GridContainer/Level 1" unique_id=442075733]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 1" unique_id=442075733]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,11 +150,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/GridContainer/Level 1/PanelContainer" unique_id=21791968]
+[node name="Panel" type="Panel" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 1/PanelContainer" unique_id=21791968]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_427c0")
 
-[node name="Label1" type="Label" parent="VBoxContainer/GridContainer/Level 1" unique_id=423647056]
+[node name="Label1" type="Label" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 1" unique_id=423647056]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -164,11 +171,11 @@ theme_override_fonts/font = ExtResource("3_d0ycl")
 theme_override_font_sizes/font_size = 32
 text = "1"
 
-[node name="Level 2" type="Button" parent="VBoxContainer/GridContainer" unique_id=782424624]
+[node name="Level 2" type="Button" parent="CanvasLayer2/VBoxContainer/GridContainer" unique_id=782424624]
 layout_mode = 2
 icon = ExtResource("4_0ys4s")
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/GridContainer/Level 2" unique_id=915460284]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 2" unique_id=915460284]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -176,11 +183,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/GridContainer/Level 2/PanelContainer" unique_id=2130795601]
+[node name="Panel" type="Panel" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 2/PanelContainer" unique_id=2130795601]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_427c0")
 
-[node name="Label2" type="Label" parent="VBoxContainer/GridContainer/Level 2" unique_id=1820201354]
+[node name="Label2" type="Label" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 2" unique_id=1820201354]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -197,12 +204,12 @@ theme_override_fonts/font = ExtResource("3_d0ycl")
 theme_override_font_sizes/font_size = 32
 text = "2"
 
-[node name="Level 3" type="Button" parent="VBoxContainer/GridContainer" unique_id=1081985487]
+[node name="Level 3" type="Button" parent="CanvasLayer2/VBoxContainer/GridContainer" unique_id=1081985487]
 layout_mode = 2
 size_flags_horizontal = 4
 icon = ExtResource("4_0ys4s")
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/GridContainer/Level 3" unique_id=1047571170]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 3" unique_id=1047571170]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -210,11 +217,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/GridContainer/Level 3/PanelContainer" unique_id=1049878071]
+[node name="Panel" type="Panel" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 3/PanelContainer" unique_id=1049878071]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_427c0")
 
-[node name="Label3" type="Label" parent="VBoxContainer/GridContainer/Level 3" unique_id=712880516]
+[node name="Label3" type="Label" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 3" unique_id=712880516]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -231,11 +238,11 @@ theme_override_fonts/font = ExtResource("3_d0ycl")
 theme_override_font_sizes/font_size = 32
 text = "3"
 
-[node name="Level 4" type="Button" parent="VBoxContainer/GridContainer" unique_id=2063713534]
+[node name="Level 4" type="Button" parent="CanvasLayer2/VBoxContainer/GridContainer" unique_id=2063713534]
 layout_mode = 2
 icon = ExtResource("4_0ys4s")
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/GridContainer/Level 4" unique_id=1727629908]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 4" unique_id=1727629908]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -243,11 +250,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/GridContainer/Level 4/PanelContainer" unique_id=1530489383]
+[node name="Panel" type="Panel" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 4/PanelContainer" unique_id=1530489383]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_427c0")
 
-[node name="Label4" type="Label" parent="VBoxContainer/GridContainer/Level 4" unique_id=324844314]
+[node name="Label4" type="Label" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 4" unique_id=324844314]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -264,11 +271,11 @@ theme_override_fonts/font = ExtResource("3_d0ycl")
 theme_override_font_sizes/font_size = 32
 text = "4"
 
-[node name="Level 5" type="Button" parent="VBoxContainer/GridContainer" unique_id=1618868718]
+[node name="Level 5" type="Button" parent="CanvasLayer2/VBoxContainer/GridContainer" unique_id=1618868718]
 layout_mode = 2
 icon = ExtResource("4_0ys4s")
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/GridContainer/Level 5" unique_id=284124248]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 5" unique_id=284124248]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -276,11 +283,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/GridContainer/Level 5/PanelContainer" unique_id=1474978258]
+[node name="Panel" type="Panel" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 5/PanelContainer" unique_id=1474978258]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_427c0")
 
-[node name="Label5" type="Label" parent="VBoxContainer/GridContainer/Level 5" unique_id=1696355643]
+[node name="Label5" type="Label" parent="CanvasLayer2/VBoxContainer/GridContainer/Level 5" unique_id=1696355643]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -297,10 +304,10 @@ theme_override_fonts/font = ExtResource("3_d0ycl")
 theme_override_font_sizes/font_size = 32
 text = "5"
 
-[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Level 1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Level 2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Level 3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Level 4" to="." method="_on_level_4_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Level 5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/GridContainer/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/GridContainer/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/GridContainer/Level 3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/GridContainer/Level 4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="CanvasLayer2/VBoxContainer/GridContainer/Level 5" to="." method="_on_level_5_pressed"]

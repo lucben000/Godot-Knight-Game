@@ -3,7 +3,6 @@ extends Control
 @export var level_select_ui: Control
 var menu: Control
 var tutorial: Node
-var camera: Camera2D
 
 @export var label_1: Label
 @export var label_2: Label
@@ -16,12 +15,12 @@ var camera: Camera2D
 func _ready() -> void:
 	menu = load("res://scenes/menu_ui.tscn").instantiate()
 	tutorial = preload("res://scenes/level_1.tscn").instantiate()
+	#Locked levels tranpsarency
 	label_1.modulate.a = 0.5
 	label_2.modulate.a = 0.5
 	label_3.modulate.a = 0.5
 	label_4.modulate.a = 0.5
 	label_5.modulate.a = 0.5
-	camera = get_parent().get_node("Camera2D")
 
 func _on_back_button_pressed() -> void:
 	get_parent().add_child(menu)
@@ -31,7 +30,6 @@ func _on_back_button_pressed() -> void:
 func _on_tutorial_pressed() -> void:
 	get_parent().add_child(tutorial)
 	get_parent().remove_child(level_select_ui)
-	camera.queue_free()
 	print("tutorial")
 
 func _on_level_1_pressed() -> void:

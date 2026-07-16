@@ -37,36 +37,44 @@ grow_vertical = 2
 script = ExtResource("1_k6eqp")
 settings_ui = NodePath(".")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=87724727]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1645448613]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=87724727]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8r1oi")
 
-[node name="Panel" type="Panel" parent="PanelContainer" unique_id=792633499]
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer" unique_id=792633499]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8r1oi")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=937815456]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=937815456]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.5
+offset_top = -189.0
+offset_right = 276.5
+offset_bottom = 189.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -15
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=372654205]
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/VBoxContainer" unique_id=372654205]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 
-[node name="CloseButton" type="Button" parent="VBoxContainer/MarginContainer3" unique_id=590258099]
+[node name="CloseButton" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer3" unique_id=590258099]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -75,58 +83,58 @@ icon = SubResource("AtlasTexture_k6eqp")
 icon_alignment = 1
 expand_icon = true
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1107625561]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer" unique_id=1107625561]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label4" type="Label" parent="VBoxContainer/MarginContainer" unique_id=1140914868]
+[node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer/MarginContainer" unique_id=1140914868]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8r1oi")
 theme_override_font_sizes/font_size = 40
 text = "Settings"
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1146794847]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer" unique_id=1146794847]
 layout_mode = 2
 theme_override_constants/margin_left = 75
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 75
 theme_override_constants/margin_bottom = 75
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2" unique_id=2122162730]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer2" unique_id=2122162730]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer" unique_id=980214512]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=980214512]
 layout_mode = 2
 theme_override_constants/separation = 60
 
-[node name="Label3" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=358925131]
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=358925131]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8r1oi")
 theme_override_font_sizes/font_size = 16
 text = "Master Volume"
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=223710380]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=223710380]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8r1oi")
 theme_override_font_sizes/font_size = 16
 text = "BGM"
 
-[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=51237506]
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer" unique_id=51237506]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8r1oi")
 theme_override_font_sizes/font_size = 16
 text = "Sound Effects"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1392268310]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1392268310]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="Masterslider" type="HSlider" parent="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=632413961]
+[node name="Masterslider" type="HSlider" parent="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=632413961]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -134,7 +142,7 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="BGMslider" type="HSlider" parent="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=231578573]
+[node name="BGMslider" type="HSlider" parent="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=231578573]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -142,7 +150,7 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="SFXslider" type="HSlider" parent="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=791792182]
+[node name="SFXslider" type="HSlider" parent="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2" unique_id=791792182]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -150,7 +158,7 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer3/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="value_changed" from="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Masterslider" to="." method="_on_masterslider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/BGMslider" to="." method="_on_bg_mslider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/SFXslider" to="." method="_on_sf_xslider_value_changed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer3/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Masterslider" to="." method="_on_masterslider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/BGMslider" to="." method="_on_bg_mslider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/SFXslider" to="." method="_on_sf_xslider_value_changed"]
