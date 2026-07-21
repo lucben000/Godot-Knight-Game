@@ -23,7 +23,7 @@ expand_margin_bottom = 200.0
 atlas = ExtResource("2_gmdvq")
 region = Rect2(68, 2, 16, 12)
 
-[node name="SettingsUI" type="Control" unique_id=1950419210 node_paths=PackedStringArray("settings_ui")]
+[node name="SettingsUI" type="Control" unique_id=1950419210 node_paths=PackedStringArray("settings_ui", "masterslider", "bg_mslider", "sf_xslider")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,6 +36,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k6eqp")
 settings_ui = NodePath(".")
+masterslider = NodePath("CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/Masterslider")
+bg_mslider = NodePath("CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/BGMslider")
+sf_xslider = NodePath("CanvasLayer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer2/SFXslider")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1645448613]
 
