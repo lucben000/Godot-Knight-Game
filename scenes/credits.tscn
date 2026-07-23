@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://ct8dirlq4cn5v"]
+
+[ext_resource type="FontFile" uid="uid://c6dqmv5s72fhk" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_0bpdh"]
+[ext_resource type="Texture2D" uid="uid://dt8x2yhogu2j4" path="res://assets/BG/battleback10.png" id="1_0ctdu"]
+[ext_resource type="FontFile" uid="uid://cjojserjflvca" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_2ckv8"]
+
+[sub_resource type="Animation" id="Animation_2ckv8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+
+[sub_resource type="Animation" id="Animation_0ctdu"]
+resource_name = "move"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(576, -1459)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fbfq"]
+_data = {
+&"RESET": SubResource("Animation_2ckv8"),
+&"move": SubResource("Animation_0ctdu")
+}
+
+[node name="Credits" type="Control" unique_id=1557824646]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1552634442]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=60948319]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0ctdu")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1945909063]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=624272111]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = 400.0
+offset_right = 177.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_2ckv8")
+theme_override_font_sizes/font_size = 48
+text = "Credits:"
+
+[node name="Label6" type="Label" parent="CanvasLayer/Control" unique_id=1715262781]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = 600.0
+offset_right = 136.5
+offset_bottom = 624.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_2ckv8")
+theme_override_font_sizes/font_size = 24
+text = "Creator/Dev:"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control" unique_id=1307220288]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = 800.0
+offset_right = 31.5
+offset_bottom = 824.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 24
+text = "Ben"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control" unique_id=622000275]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.5
+offset_top = 1000.0
+offset_right = 79.5
+offset_bottom = 1024.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_2ckv8")
+theme_override_font_sizes/font_size = 24
+text = "Assets:"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Control" unique_id=545629142]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = 1200.0
+offset_right = 31.5
+offset_bottom = 1224.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 24
+text = "Ben"
+
+[node name="Label5" type="Label" parent="CanvasLayer/Control" unique_id=2128812571]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.5
+offset_top = 1400.0
+offset_right = 334.5
+offset_bottom = 1424.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 24
+text = "Free online assets (links in github)"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control" unique_id=1098666109]
+libraries/ = SubResource("AnimationLibrary_2fbfq")
