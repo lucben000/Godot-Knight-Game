@@ -10,6 +10,7 @@ var ladderSpeed = 200
 var pause: Control
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sfx: AudioStreamPlayer2D = $SFX
+@onready var hud: CanvasLayer = $HUD
 
 
 func _ready() -> void:

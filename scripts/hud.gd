@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var score_label: Label = $ScoreLabel
-var score = 0
+@export var score_label: Label
+var score: int = 0
 
 func add_score():
 	score += 1 

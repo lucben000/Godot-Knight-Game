@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://n54d43g1t8wa" path="res://scripts/hud.gd" id="1_5ysmq"]
 [ext_resource type="FontFile" uid="uid://cjojserjflvca" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_oo0fn"]
 
-[node name="HUD" type="CanvasLayer" unique_id=255473197]
+[node name="HUD" type="CanvasLayer" unique_id=255473197 node_paths=PackedStringArray("score_label")]
 script = ExtResource("1_5ysmq")
+score_label = NodePath("MarginContainer/ScoreLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1225925154]
 anchors_preset = 1
