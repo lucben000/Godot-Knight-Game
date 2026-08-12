@@ -1,24 +1,29 @@
 extends CharacterBody2D
 
+var pause: Control
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sfx: AudioStreamPlayer2D = $SFX
+@onready var hud: CanvasLayer = $HUD
+
 enum playerState { ALIVE, DEAD }
 @export var playerStatus : playerState
 const SPEED = 200.0
 const JUMP_VELOCITY = -250.0
 var ladderDetect = false
 var ladderSpeed = 200
-
-var pause: Control
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var sfx: AudioStreamPlayer2D = $SFX
-@onready var hud: CanvasLayer = $HUD
+var levelDoor:Node2D
+var doorPassable: bool
 
 
 func _ready() -> void:
 	playerStatus = playerState.ALIVE
 	pause = load("res://scenes/pause_ui.tscn").instantiate()
+	levelDoor = get_node("../Door")
+	doorPassable = levelDoor.doorPassable
 
 #Physics
 func _physics_process(delta: float) -> void:
+	doorPassable = levelDoor.doorPassable
 	
 	# Get the input direction and handle the movement/deceleration.
 	var directionY := Input.get_axis("up", "down")
@@ -33,6 +38,11 @@ func _physics_process(delta: float) -> void:
 	#Gravity
 	elif not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	#Go through the level door to go to the next level
+	if doorPassable:
+		if Input.is_action_just_pressed("up"):
+			print("Next level")
 	
 	#ALIVE = move or if DEAD = can't move
 	if playerStatus == playerState.ALIVE:
@@ -64,7 +74,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 
-
+#--------------------------Animations--------------------------------------#
 # Plays animations
 func playAnimations(directionX, directionY):
 	if playerStatus == playerState.DEAD:

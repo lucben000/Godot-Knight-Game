@@ -303,14 +303,22 @@ shape = SubResource("CircleShape2D_g2els")
 stream = ExtResource("3_qhqgy")
 bus = &"SFX"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2074369306]
-collision_layer = 4
-collision_mask = 4
+[node name="Death" type="Area2D" parent="." unique_id=2074369306]
+collision_layer = 128
+collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=625004679]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death" unique_id=625004679]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_g2els")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="Ladders" type="Area2D" parent="." unique_id=271325311]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladders" unique_id=1641116125]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_g2els")
+
+[connection signal="area_entered" from="Death" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Ladders" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Ladders" to="." method="_on_area_2d_body_exited"]
