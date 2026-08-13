@@ -319,6 +319,16 @@ collision_mask = 4
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_g2els")
 
+[node name="Door" type="Area2D" parent="." unique_id=589674322]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1784204348]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_g2els")
+
 [connection signal="area_entered" from="Death" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Ladders" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Ladders" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Door" to="." method="_on_door_area_entered"]
+[connection signal="area_exited" from="Door" to="." method="_on_door_area_exited"]

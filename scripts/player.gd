@@ -1,23 +1,31 @@
 extends CharacterBody2D
 
+#Etc
+var credits: Control
 var pause: Control
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sfx: AudioStreamPlayer2D = $SFX
 @onready var hud: CanvasLayer = $HUD
 
+#Player
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 enum playerState { ALIVE, DEAD }
 @export var playerStatus : playerState
 const SPEED = 200.0
 const JUMP_VELOCITY = -250.0
-var ladderDetect = false
-var ladderSpeed = 200
-var levelDoor:Node2D
+
+#Objects
+var ladderDetect: bool = false
+var ladderSpeed: int = 200
+var levelDoor: Node2D
 var doorPassable: bool
+var doorDetect: bool = false
+
 
 
 func _ready() -> void:
 	playerStatus = playerState.ALIVE
 	pause = load("res://scenes/pause_ui.tscn").instantiate()
+	credits = load("res://scenes/credits.tscn").instantiate()
 	levelDoor = get_node("../Door")
 	doorPassable = levelDoor.doorPassable
 
@@ -41,8 +49,11 @@ func _physics_process(delta: float) -> void:
 	
 	#Go through the level door to go to the next level
 	if doorPassable:
-		if Input.is_action_just_pressed("up"):
-			print("Next level")
+		if doorDetect:
+			if Input.is_action_just_pressed("up"):
+				get_tree().root.get_node("/root/Game").add_child(credits)
+				get_parent().queue_free()
+				#print("Next level")
 	
 	#ALIVE = move or if DEAD = can't move
 	if playerStatus == playerState.ALIVE:
@@ -56,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
-		
+	#When dead, de-accelerates to 0 speed
 	else:
 		directionX = 0.0
 		velocity.x = move_toward(velocity.x, 0, SPEED * delta)
@@ -66,7 +77,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = true
 		add_child(pause)
-		print("paused")
+		#print("paused")
 	
 	
 	playAnimations(directionX, directionY)
@@ -108,6 +119,14 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	ladderDetect = false
 	#print('not climbing')
 
+#Detect death
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	playerStatus = playerState.DEAD
 	#print(playerStatus)
+
+func _on_door_area_entered(area: Area2D) -> void:
+	doorDetect = true
+	#print("I'm in a door")
+func _on_door_area_exited(area: Area2D) -> void:
+	doorDetect = false
+	#print("Exited door")
