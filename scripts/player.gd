@@ -3,6 +3,8 @@ extends CharacterBody2D
 #Etc
 var credits: Control
 var pause: Control
+var fade: CanvasLayer
+var gameNode: Node2D
 @onready var sfx: AudioStreamPlayer2D = $SFX
 @onready var hud: CanvasLayer = $HUD
 
@@ -24,8 +26,10 @@ var doorDetect: bool = false
 
 func _ready() -> void:
 	playerStatus = playerState.ALIVE
+	gameNode = get_tree().root.get_node("/root/Game")
 	pause = load("res://scenes/pause_ui.tscn").instantiate()
 	credits = load("res://scenes/credits.tscn").instantiate()
+	fade = load("res://scenes/fade.tscn").instantiate()
 	levelDoor = get_node("../Door")
 	doorPassable = levelDoor.doorPassable
 
@@ -51,7 +55,9 @@ func _physics_process(delta: float) -> void:
 	if doorPassable:
 		if doorDetect:
 			if Input.is_action_just_pressed("up"):
-				get_tree().root.get_node("/root/Game").add_child(credits)
+				get_tree().root.add_child(fade)
+				await get_tree().create_timer(1.0).timeout
+				gameNode.add_child(credits)
 				get_parent().queue_free()
 				#print("Next level")
 	

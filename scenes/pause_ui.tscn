@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://daehjqq18q3wy" path="res://assets/myAssets/ResumeIcon.png" id="3_4j456"]
 [ext_resource type="Texture2D" uid="uid://cwhdlm2i118ou" path="res://assets/myAssets/SettingsIcon.png" id="4_0vm74"]
 [ext_resource type="Texture2D" uid="uid://bs18te0iorhlq" path="res://assets/myAssets/ExitIcon.png" id="5_utk7g"]
+[ext_resource type="AudioStream" uid="uid://djn6s52d2guf5" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="8_ynu8c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vm74"]
 bg_color = Color(0, 0, 0, 0.3647059)
@@ -22,7 +23,7 @@ expand_margin_top = 100.0
 expand_margin_right = 300.0
 expand_margin_bottom = 100.0
 
-[node name="PauseUI" type="Control" unique_id=2120655701 node_paths=PackedStringArray("pause_ui")]
+[node name="PauseUI" type="Control" unique_id=2120655701]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 8
@@ -35,7 +36,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_utk7g")
-pause_ui = NodePath(".")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1090648475]
 
@@ -140,6 +140,10 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_utk7g")
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=769248453]
+stream = ExtResource("8_ynu8c")
+bus = &"SFX"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/Settings" to="." method="_on_settings_pressed"]

@@ -4,6 +4,7 @@ extends Control
 @export var masterslider: HSlider
 @export var bg_mslider: HSlider
 @export var sf_xslider: HSlider
+@onready var sfx: AudioStreamPlayer = $SFX
 
 static var masterVolume: int
 var masterVolumeIndex: int
@@ -28,6 +29,8 @@ func _ready() -> void:
 	
 
 func _on_close_button_pressed() -> void:
+	sfx.play()
+	await get_tree().create_timer(0.1).timeout
 	get_parent().remove_child(settings_ui)
 	print("close settings")
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d3akj8cxo2m1a" path="res://scripts/menu_ui.gd" id="1_ld3xo"]
 [ext_resource type="Texture2D" uid="uid://b871h4he0spsu" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_square_flat.png" id="1_tner2"]
 [ext_resource type="FontFile" uid="uid://c6dqmv5s72fhk" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="2_b5e6c"]
+[ext_resource type="AudioStream" uid="uid://djn6s52d2guf5" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="5_ld3xo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y6qt"]
 bg_color = Color(1, 0.84705883, 0.70980394, 1)
@@ -156,6 +157,10 @@ theme_override_font_sizes/font_size = 32
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=933896395]
+stream = ExtResource("5_ld3xo")
+bus = &"SFX"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer2/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer2/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

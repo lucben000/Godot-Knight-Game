@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bc11ehlltsow5" path="res://assets/kenney_ui-pack/PNG/Grey/Default/button_square_border.png" id="4_0ys4s"]
 [ext_resource type="Texture2D" uid="uid://dphtr8fq1ybj" path="res://assets/kenney_ui-pack-pixel-adventure/Tilesheets/Small tiles/Thick outline/tilemap.png" id="4_7wwxp"]
 [ext_resource type="Texture2D" uid="uid://cpg5shd4mmy46" path="res://assets/myAssets/locked.png" id="7_282le"]
+[ext_resource type="AudioStream" uid="uid://djn6s52d2guf5" path="res://assets/brackeys_platformer_assets/sounds/tap.wav" id="8_427c0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0ycl"]
 bg_color = Color(0.2509804, 0.2509804, 0.2509804, 0.48235294)
@@ -29,7 +30,8 @@ region = Rect2(68, 2, 16, 12)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_427c0"]
 texture = ExtResource("7_282le")
 
-[node name="LevelSelectUI" type="Control" unique_id=358666503 node_paths=PackedStringArray("level_select_ui", "label_1", "label_2", "label_3", "label_4", "label_5")]
+[node name="LevelSelectUI" type="Control" unique_id=358666503 node_paths=PackedStringArray("label_1", "label_2", "label_3", "label_4", "label_5")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,7 +43,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_pn4fm")
-level_select_ui = NodePath(".")
 label_1 = NodePath("CanvasLayer2/VBoxContainer/GridContainer/Level 1/Label1")
 label_2 = NodePath("CanvasLayer2/VBoxContainer/GridContainer/Level 2/Label2")
 label_3 = NodePath("CanvasLayer2/VBoxContainer/GridContainer/Level 3/Label3")
@@ -303,6 +304,10 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_d0ycl")
 theme_override_font_sizes/font_size = 32
 text = "5"
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1731282067]
+stream = ExtResource("8_427c0")
+bus = &"SFX"
 
 [connection signal="pressed" from="CanvasLayer2/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer2/VBoxContainer/GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
