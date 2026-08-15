@@ -19,6 +19,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#Skip credits by pressing ESC
 	if Input.is_action_just_pressed("skip"):
+		get_tree().root.add_child(fade)
+		await get_tree().create_timer(1.0).timeout
 		gameNode.add_child(menu)
 		queue_free()
 

@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://6p8md218qqjg" path="res://scripts/end_screen.gd" id="7_go7sj"]
 [ext_resource type="PackedScene" uid="uid://cmotmwtxq38w5" path="res://scenes/killzone.tscn" id="8_7gny6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2y5yt"]
 texture = ExtResource("1_014kd")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -149,9 +149,9 @@ texture = ExtResource("1_014kd")
 [sub_resource type="TileSet" id="TileSet_lbhrr"]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
-sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+sources/0 = SubResource("TileSetAtlasSource_2y5yt")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2os1m"]
 texture = ExtResource("1_014kd")
 9:4/0 = 0
 9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -161,9 +161,9 @@ texture = ExtResource("1_014kd")
 [sub_resource type="TileSet" id="TileSet_vtaks"]
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_0tnpc")
+sources/0 = SubResource("TileSetAtlasSource_2os1m")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go7sj"]
 texture = ExtResource("1_014kd")
 0:9/0 = 0
 1:9/0 = 0
@@ -195,7 +195,7 @@ texture = ExtResource("1_014kd")
 3:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_lnu2h"]
-sources/0 = SubResource("TileSetAtlasSource_yqjtg")
+sources/0 = SubResource("TileSetAtlasSource_go7sj")
 
 [sub_resource type="Animation" id="Animation_7gny6"]
 length = 0.001

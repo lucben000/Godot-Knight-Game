@@ -281,10 +281,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1632673687]
+[node name="Player" type="CharacterBody2D" unique_id=1632673687 node_paths=PackedStringArray("player")]
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_g2els")
+player = NodePath(".")
 
 [node name="HUD" parent="." unique_id=255473197 instance=ExtResource("2_dqkch")]
 

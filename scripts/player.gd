@@ -9,11 +9,12 @@ var gameNode: Node2D
 @onready var hud: CanvasLayer = $HUD
 
 #Player
+@export var player: CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 enum playerState { ALIVE, DEAD }
 @export var playerStatus : playerState
 const SPEED = 200.0
-const JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -325.0
 
 #Objects
 var ladderDetect: bool = false
@@ -30,12 +31,12 @@ func _ready() -> void:
 	pause = load("res://scenes/pause_ui.tscn").instantiate()
 	credits = load("res://scenes/credits.tscn").instantiate()
 	fade = load("res://scenes/fade.tscn").instantiate()
-	levelDoor = get_node("../Door")
-	doorPassable = levelDoor.doorPassable
+	#levelDoor = get_node("../Door")
+	#doorPassable = levelDoor.doorPassable
 
 #Physics
 func _physics_process(delta: float) -> void:
-	doorPassable = levelDoor.doorPassable
+	#doorPassable = levelDoor.doorPassable
 	
 	# Get the input direction and handle the movement/deceleration.
 	var directionY := Input.get_axis("up", "down")

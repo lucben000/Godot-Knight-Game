@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://drqeou6yx161x"]
 
 [ext_resource type="Script" uid="uid://dnecm8fsw48c6" path="res://scripts/green_slime_enemy.gd" id="1_n560y"]
-[ext_resource type="Texture2D" uid="uid://bv4y4v47mdvi3" path="res://brackeys_platformer_assets/sprites/slime_green.png" id="1_yj1vg"]
+[ext_resource type="Texture2D" uid="uid://bv4y4v47mdvi3" path="res://assets/brackeys_platformer_assets/sprites/slime_green.png" id="1_yj1vg"]
 [ext_resource type="PackedScene" uid="uid://cmotmwtxq38w5" path="res://scenes/killzone.tscn" id="2_51u20"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51u20"]
