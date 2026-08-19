@@ -90,7 +90,6 @@ func _physics_process(delta: float) -> void:
 	playAnimations(directionX, directionY)
 	move_and_slide()
 	
-	
 
 #--------------------------Animations--------------------------------------#
 # Plays animations
