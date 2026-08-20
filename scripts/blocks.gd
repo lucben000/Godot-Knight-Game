@@ -1,33 +1,31 @@
 extends TileMapLayer
 
-var tile
 var source_id: int
 var atlas_coords: Vector2i
+var blockCoords: Vector2i
 
-# Called when the node enters the scene tree for the first time.
+var questionBlockId: int
+var questionBlockCoords: Vector2i
+
 func _ready() -> void:
-	#tile = get_used_cells()
-	#print(tile)
-	#source_id = get_cell_source_id(Vector2i(7, -26))
-	#atlas_coords = get_cell_atlas_coords(Vector2i(7, -26))
-	#print(source_id)
-	#print(atlas_coords)
-	#print(randi_range(0, 1))
-	pass
+	questionBlockId = get_cell_source_id(Vector2i(0, 1))
+	questionBlockCoords = get_cell_atlas_coords(Vector2i(0, 1))
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func changeTile():
+func changeTile(collisionPoint: Vector2i):
 	var rng: int = blockRandomizer()
-	#source_id = get_cell_source_id(Vector2i(rng, 0))
-	#atlas_coords = get_cell_atlas_coords(Vector2i(rng, 0))
-	set_cell(Vector2i(29, -32), source_id, atlas_coords)
-
-func blockRandomizer():
-	var rng: int = randi_range(0, 1)
+	
+	##Convert the block position of collision to the tilemap position
+	#blockCoords = local_to_map(collisionPoint)
+	##Offset
+	#blockCoords += Vector2i(0, -1)
+	
+	#if (get_cell_source_id(blockCoords) == questionBlockId 
+	#&& get_cell_atlas_coords(blockCoords) == questionBlockCoords):
 	source_id = get_cell_source_id(Vector2i(rng, 0))
 	atlas_coords = get_cell_atlas_coords(Vector2i(rng, 0))
-	return rng
+	set_cell(collisionPoint, source_id, atlas_coords)
+	
+
+#Randomizes which block to use
+func blockRandomizer():
+	return randi_range(0, 1)
