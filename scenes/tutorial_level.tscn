@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://c6dqmv5s72fhk" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_mtuav"]
 [ext_resource type="PackedScene" uid="uid://drqeou6yx161x" path="res://scenes/green_slime_enemy.tscn" id="4_3vde5"]
 [ext_resource type="PackedScene" uid="uid://caqj8c6qgmsmq" path="res://scenes/coin.tscn" id="4_fem2g"]
+[ext_resource type="PackedScene" uid="uid://hw5cx3h6txhj" path="res://scenes/blank_hidden.tscn" id="6_6s1ea"]
+[ext_resource type="PackedScene" uid="uid://bjcw6eifefdjk" path="res://scenes/door.tscn" id="8_w40hx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtuav"]
 texture = ExtResource("1_nm3d5")
@@ -203,7 +205,7 @@ tile_map_data = PackedByteArray("AAAGAPn/AAAAAA8AAAAGAPr/AAAAAA8AAAAGAPv/AAAAAA8
 tile_set = SubResource("TileSet_fem2g")
 
 [node name="Player" parent="." unique_id=1632673687 instance=ExtResource("1_gk31l")]
-position = Vector2(1608, -480)
+position = Vector2(2020, -485)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1800611202]
 offset = Vector2(0, -20)
@@ -240,6 +242,11 @@ position = Vector2(2216, -555)
 [node name="Coin Hidden4" parent="Hidden Coins" unique_id=26449145 instance=ExtResource("3_hpxl2")]
 position = Vector2(2248, -507)
 
+[node name="Hidden Blanks" type="Node" parent="." unique_id=328387201]
+
+[node name="Blank Hidden" parent="Hidden Blanks" unique_id=1969905723 instance=ExtResource("6_6s1ea")]
+position = Vector2(2216, -507)
+
 [node name="Enemies" type="Node" parent="." unique_id=492681963]
 
 [node name="Green Slime Enemy" parent="Enemies" unique_id=1400166952 instance=ExtResource("4_3vde5")]
@@ -247,6 +254,10 @@ position = Vector2(1117, -405)
 
 [node name="Green Slime Enemy2" parent="Enemies" unique_id=1854752015 instance=ExtResource("4_3vde5")]
 position = Vector2(1502, -467)
+
+[node name="Door" parent="." unique_id=903089734 instance=ExtResource("8_w40hx")]
+position = Vector2(2846, -468)
+scale = Vector2(0.75, 0.75)
 
 [node name="Text" type="Node" parent="." unique_id=695899074]
 
@@ -317,5 +328,17 @@ theme_override_fonts/font = ExtResource("3_mtuav")
 theme_override_font_sizes/font_size = 8
 text = "Mysterious Blocks
 What are inside of them?"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label7" type="Label" parent="Text" unique_id=168085934]
+offset_left = 2533.0
+offset_top = -529.0
+offset_right = 2861.0
+offset_bottom = -510.0
+theme_override_fonts/font = ExtResource("3_mtuav")
+theme_override_font_sizes/font_size = 8
+text = "Go through the door with the Up arrow key
+Some levels have certain conditions to open the door"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true

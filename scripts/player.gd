@@ -5,6 +5,7 @@ var credits: Control
 var pause: Control
 var fade: CanvasLayer
 var gameNode: Node2D
+var levelNode: Node
 @onready var sfx: AudioStreamPlayer2D = $SFX
 @onready var hud: CanvasLayer = $HUD
 
@@ -28,15 +29,16 @@ var doorDetect: bool = false
 func _ready() -> void:
 	playerStatus = playerState.ALIVE
 	gameNode = get_tree().root.get_node("/root/Game")
+	levelNode = gameNode.get_child(1)
 	pause = load("res://scenes/pause_ui.tscn").instantiate()
 	credits = load("res://scenes/credits.tscn").instantiate()
 	fade = load("res://scenes/fade.tscn").instantiate()
-	#levelDoor = get_node("../Door")
+	levelDoor = levelNode.get_node("./Door")
 	#doorPassable = levelDoor.doorPassable
 
 #Physics
 func _physics_process(delta: float) -> void:
-	#doorPassable = levelDoor.doorPassable
+	doorPassable = levelDoor.doorPassable
 	
 	# Get the input direction and handle the movement/deceleration.
 	var directionY := Input.get_axis("up", "down")

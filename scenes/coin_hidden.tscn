@@ -55,7 +55,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lxuj"]
-size = Vector2(9.125, 15)
+size = Vector2(11.5625, 15)
 
 [node name="Coin Hidden" type="Node2D" unique_id=72350418]
 script = ExtResource("1_k3u48")
