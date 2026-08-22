@@ -6,6 +6,7 @@ var pause: Control
 var fade: CanvasLayer
 var gameNode: Node2D
 var levelNode: Node
+var levels: Control
 @onready var sfx: AudioStreamPlayer2D = $SFX
 @onready var hud: CanvasLayer = $HUD
 
@@ -23,18 +24,22 @@ var ladderSpeed: int = 200
 var levelDoor: Node2D
 var doorPassable: bool
 var doorDetect: bool = false
+var doorEnding: int
 
 
 
 func _ready() -> void:
 	playerStatus = playerState.ALIVE
+	
 	gameNode = get_tree().root.get_node("/root/Game")
 	levelNode = gameNode.get_child(1)
+	levels = load("res://scenes/level_select_ui.tscn").instantiate()
 	pause = load("res://scenes/pause_ui.tscn").instantiate()
 	credits = load("res://scenes/credits.tscn").instantiate()
 	fade = load("res://scenes/fade.tscn").instantiate()
+	
 	levelDoor = levelNode.get_node("./Door")
-	#doorPassable = levelDoor.doorPassable
+	doorEnding = levelDoor.levelEnding
 
 #Physics
 func _physics_process(delta: float) -> void:
@@ -58,11 +63,20 @@ func _physics_process(delta: float) -> void:
 	if doorPassable:
 		if doorDetect:
 			if Input.is_action_just_pressed("up"):
-				get_tree().root.add_child(fade)
-				await get_tree().create_timer(1.0).timeout
-				gameNode.add_child(credits)
-				get_parent().queue_free()
-				#print("Next level")
+				#{LEVEL_ENDING: 0}
+				if doorEnding == 0:
+					get_tree().root.add_child(fade)
+					await get_tree().create_timer(1.0).timeout
+					gameNode.add_child(levels)
+					get_parent().queue_free()
+					#print("Next level")
+				#{CREDITS: 1}
+				elif doorEnding == 1:
+					get_tree().root.add_child(fade)
+					await get_tree().create_timer(1.0).timeout
+					gameNode.add_child(credits)
+					get_parent().queue_free()
+					#print("Next level")
 	
 	#ALIVE = move or if DEAD = can't move
 	if playerStatus == playerState.ALIVE:

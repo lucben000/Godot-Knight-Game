@@ -4,6 +4,8 @@ extends Node2D
 @export var doorPassable: bool
 enum winConditions { COIN, ENEMY, NONE }
 @export var winCondition : winConditions
+enum transitions { LEVEL_SELECT, CREDITS }
+@export var levelEnding : transitions
 var coins: int
 var enemies: int
 

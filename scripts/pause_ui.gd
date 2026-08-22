@@ -20,12 +20,12 @@ func _on_resume_pressed() -> void:
 	await get_tree().create_timer(0.1).timeout
 	get_tree().paused = false
 	get_parent().remove_child(pause_ui)
-	print("resume")
+	#print("resume")
 
 func _on_settings_pressed() -> void:
 	sfx.play()
 	add_child(settings)
-	print("open settings")
+	#print("open settings")
 
 #Unpause game as well
 func _on_quit_pressed() -> void:
@@ -35,4 +35,4 @@ func _on_quit_pressed() -> void:
 	gameNode.add_child(level_select)
 	get_tree().paused = false
 	get_parent().get_parent().queue_free()
-	print("quit game")
+	#print("quit game")

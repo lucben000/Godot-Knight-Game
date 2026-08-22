@@ -6,6 +6,7 @@ extends Control
 @export var sf_xslider: HSlider
 @onready var sfx: AudioStreamPlayer = $SFX
 
+var settingsDictionary: Dictionary
 static var masterVolume: int
 var masterVolumeIndex: int
 static var bgmVolume: int
@@ -14,13 +15,17 @@ static var sfxVolume: int
 var sfxVolumeIndex: int
 
 func _ready() -> void:
+	settingsDictionary = Settings.loadSettings()
+	#print(settingsDictionary)
+	
 	masterVolumeIndex = AudioServer.get_bus_index("Master")
 	bgmVolumeIndex = AudioServer.get_bus_index("Music")
 	sfxVolumeIndex = AudioServer.get_bus_index("SFX")
 	
-	masterVolume = AudioServer.get_bus_volume_db(masterVolumeIndex)
-	bgmVolume = AudioServer.get_bus_volume_db(bgmVolumeIndex)
-	sfxVolume = AudioServer.get_bus_volume_db(sfxVolumeIndex)
+	#Load key of the settings configuration values into volume value in db
+	masterVolume = linear_to_db(settingsDictionary["Master_Volume"])
+	bgmVolume = linear_to_db(settingsDictionary["Music_Volume"])
+	sfxVolume = linear_to_db(settingsDictionary["Sound_Effects_Volume"])
 	
 	#db to linear = db value to linear value
 	masterslider.value = db_to_linear(masterVolume)
@@ -29,10 +34,17 @@ func _ready() -> void:
 	
 
 func _on_close_button_pressed() -> void:
+	var volumeDict: Dictionary = {
+		"Master_Volume": AudioServer.get_bus_volume_linear(masterVolumeIndex),
+		"Music_Volume": AudioServer.get_bus_volume_linear(bgmVolumeIndex),
+		"Sound_Effects_Volume": AudioServer.get_bus_volume_linear(sfxVolumeIndex)
+		}
+	Settings.saveSettings(volumeDict)
+	
 	sfx.play()
 	await get_tree().create_timer(0.1).timeout
 	get_parent().remove_child(settings_ui)
-	print("close settings")
+	#print("close settings")
 
 #Set Volume
 #linear to db = linear value to db value

@@ -14,17 +14,17 @@ func _on_play_button_pressed() -> void:
 	sfx.play()
 	get_parent().add_child(levels)
 	menu_ui.queue_free()
-	print("play game")
+	#print("play game")
 
 func _on_settings_button_pressed() -> void:
 	#var settingsScene = preload("res://scenes/settings_ui.tscn")
 	#var settings = settingsScene.instantiate()
 	sfx.play()
 	add_child(settings)
-	print("open settings")
+	#print("open settings")
 
 func _on_quit_button_pressed() -> void:
 	sfx.play()
 	await get_tree().create_timer(0.2).timeout
-	print("quitting game")
+	#print("quitting game")
 	get_tree().quit()

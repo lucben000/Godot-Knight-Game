@@ -53,16 +53,16 @@ func _on_level_1_pressed() -> void:
 
 func _on_level_2_pressed() -> void:
 	sfx.play()
-	print("level 2")
+	#print("level 2")
 
 func _on_level_3_pressed() -> void:
 	sfx.play()
-	print("level 3")
+	#print("level 3")
 
 func _on_level_4_pressed() -> void:
 	sfx.play()
-	print("level 4")
+	#print("level 4")
 
 func _on_level_5_pressed() -> void:
 	sfx.play()
-	print("level 5")
+	#print("level 5")
