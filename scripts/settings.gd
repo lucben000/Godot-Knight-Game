@@ -2,7 +2,7 @@ extends Node
 
 #Config file
 var config = ConfigFile.new()
-var filePath = "user://settings.cfg"
+const filePath = "user://settings.cfg"
 
 func _ready() -> void:
 	if FileAccess.file_exists(filePath):

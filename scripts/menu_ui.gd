@@ -24,6 +24,7 @@ func _on_settings_button_pressed() -> void:
 	#print("open settings")
 
 func _on_quit_button_pressed() -> void:
+	SaveSystem.saveGame()
 	sfx.play()
 	await get_tree().create_timer(0.2).timeout
 	#print("quitting game")

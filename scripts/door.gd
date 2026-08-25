@@ -31,3 +31,14 @@ func _process(delta: float) -> void:
 func levelWin():
 	var texture = load("res://assets/myAssets/doorUnlocked.png")
 	sprite_2d.texture = texture
+	
+	if Global.level == Global.levels.TUTORIAL_LEVEL:
+		SaveSystem.profile["level_1"] = true
+	if Global.level == Global.levels.LEVEL_1:
+		SaveSystem.profile["level_2"] = true
+	if Global.level == Global.levels.LEVEL_2:
+		SaveSystem.profile["level_3"] = true
+	if Global.level == Global.levels.LEVEL_3:
+		SaveSystem.profile["level_4"] = true
+	if Global.level == Global.levels.LEVEL_4:
+		SaveSystem.profile["level_5"] = true

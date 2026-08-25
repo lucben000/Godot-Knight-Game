@@ -23,6 +23,8 @@ buses/default_bus_layout="uid://ctyu3w2k5w2l0"
 
 Music="*uid://syax6mrxa8wk"
 Settings="*uid://b5arf28s44dxf"
+SaveSystem="*uid://bg2n6jycji44i"
+Global="*uid://4a5trnw4tgr2"
 
 [input]
 
