@@ -31,22 +31,26 @@ func _ready() -> void:
 		label_1.modulate.a = 0.5
 	else:
 		panel_container1.visible = false
-	if !SaveSystem.profile["level_2"]:
-		label_2.modulate.a = 0.5
-	else:
-		panel_container2.visible = false
-	if !SaveSystem.profile["level_3"]:
-		label_3.modulate.a = 0.5
-	else:
-		panel_container3.visible = false
-	if !SaveSystem.profile["level_4"]:
-		label_4.modulate.a = 0.5
-	else:
-		panel_container4.visible = false
-	if !SaveSystem.profile["level_5"]:
-		label_5.modulate.a = 0.5
-	else:
-		panel_container5.visible = false
+	#if !SaveSystem.profile["level_2"]:
+		#label_2.modulate.a = 0.5
+	#else:
+		#panel_container2.visible = false
+	#if !SaveSystem.profile["level_3"]:
+		#label_3.modulate.a = 0.5
+	#else:
+		#panel_container3.visible = false
+	#if !SaveSystem.profile["level_4"]:
+		#label_4.modulate.a = 0.5
+	#else:
+		#panel_container4.visible = false
+	#if !SaveSystem.profile["level_5"]:
+		#label_5.modulate.a = 0.5
+	#else:
+		#panel_container5.visible = false
+	label_2.modulate.a = 0.5
+	label_3.modulate.a = 0.5
+	label_4.modulate.a = 0.5
+	label_5.modulate.a = 0.5
 	
 
 func _on_back_button_pressed() -> void:
