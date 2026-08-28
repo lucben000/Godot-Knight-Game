@@ -15,6 +15,7 @@ func _ready() -> void:
 	end_score_label = level.find_child("EndScreen")
 
 func _on_body_entered(body: Node2D) -> void:
-	end_score_label.minus_coins()
+	if end_score_label:
+		end_score_label.minus_coins()
 	player.hud.add_score()
 	animation_player.play("pickup")

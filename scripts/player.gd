@@ -40,9 +40,11 @@ func _ready() -> void:
 	
 	levelDoor = levelNode.get_node("./Door")
 	doorEnding = levelDoor.levelEnding
+	doorPassable = levelDoor.doorPassable
 
 #Physics
 func _physics_process(delta: float) -> void:
+	#print(doorPassable)
 	doorPassable = levelDoor.doorPassable
 	
 	# Get the input direction and handle the movement/deceleration.
