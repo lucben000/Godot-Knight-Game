@@ -23,7 +23,7 @@ var fade: CanvasLayer
 func _ready() -> void:
 	menu = load("res://scenes/menu_ui.tscn").instantiate()
 	tutorial = load("res://scenes/tutorial_level.tscn").instantiate()
-	level1 = load("res://scenes/level_1.tscn").instantiate()
+	level1 = load("res://scenes/level_1.scn").instantiate()
 	fade = load("res://scenes/fade.tscn").instantiate()
 	
 	#Locked levels tranpsarency

@@ -2,20 +2,29 @@ extends Node2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @export var doorPassable: bool
+
 enum winConditions { COIN, ENEMY, NONE }
 @export var winCondition : winConditions
 enum transitions { LEVEL_SELECT, CREDITS }
 @export var levelEnding : transitions
+
+var gameNode: Node2D
+var level: Node
+
 var coins: int
+var hiddenCoins: int
 var enemies: int
 
 func _ready() -> void:
 	doorPassable = false
+	gameNode = get_tree().root.get_node("/root/Game")
+	level = gameNode.get_child(1)
+	hiddenCoins = level.find_child('Hidden Coins').get_child_count()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if winCondition == winConditions.COIN:
-		coins = get_parent().find_child('Coins').get_child_count()
+		coins = level.find_child('Coins').get_child_count() + hiddenCoins
 		if coins <= 0:
 			doorPassable = true
 			levelWin()
