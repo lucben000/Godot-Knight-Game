@@ -12,20 +12,23 @@ var gameNode: Node2D
 var level: Node
 
 var coins: int
-var hiddenCoins: int
+var hiddencoins: int
+var totalCoins: int
 var enemies: int
 
 func _ready() -> void:
 	doorPassable = false
 	gameNode = get_tree().root.get_node("/root/Game")
 	level = gameNode.get_child(1)
-	hiddenCoins = level.find_child('Hidden Coins').get_child_count()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if winCondition == winConditions.COIN:
-		coins = level.find_child('Coins').get_child_count() + hiddenCoins
-		if coins <= 0:
+		hiddencoins = level.find_child('Hidden Coins').get_child_count()
+		coins = level.find_child('Coins').get_child_count()
+		totalCoins = coins + hiddencoins
+		if totalCoins <= 0:
 			doorPassable = true
 			levelWin()
 	elif winCondition == winConditions.ENEMY:

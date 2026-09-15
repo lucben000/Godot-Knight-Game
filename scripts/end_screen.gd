@@ -6,6 +6,7 @@ var CoinGroup: Node
 var HiddenCoinGroup: Node
 var coins: int
 var hiddencoins: int
+var totalCoins: int
 
 var EnemyGroup: Node
 var enemies: int
@@ -18,17 +19,18 @@ func _ready():
 	CoinGroup = level.find_child("Coins")
 	coins = CoinGroup.get_child_count()
 	hiddencoins = HiddenCoinGroup.get_child_count()
+	totalCoins = coins + hiddencoins
 	
 	EnemyGroup = level.find_child("Enemies")
 	enemies = EnemyGroup.get_child_count()
 	
 func minus_coins():
-	coins -= 1
+	totalCoins -= 1
 	
-	if coins == 0:
+	if totalCoins <= 0:
 		text = "Congrats you beat the level"
 	else:
-		text = "You are missing " + str(coins + hiddencoins) + " coins"
+		text = "You are missing " + str(totalCoins) + " coins"
 		
 
 func minus_enemies():

@@ -4,6 +4,7 @@ extends Node2D
 var level: Node
 var map: TileMapLayer
 var player: Node2D
+var end_score_label: Label
 
 var questionBlockId: int
 var questionBlockCoords: Vector2i
@@ -16,6 +17,7 @@ func _ready() -> void:
 	level = get_parent().get_parent()
 	map = level.get_child(0).find_child("Map")
 	player = level.find_child("Player")
+	end_score_label = level.find_child("EndScreen")
 	
 	questionBlockId = map.get_cell_source_id(Vector2i(0, 1))
 	questionBlockCoords = map.get_cell_atlas_coords(Vector2i(0, 1))
@@ -34,6 +36,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		(map.get_cell_source_id(blockCoords) == exclamationBlockId
 		&& map.get_cell_atlas_coords(blockCoords) == exclamationBlockCoords)
 	):
+		if end_score_label:
+			end_score_label.minus_coins()
 		animation_player.play("pickup")
 		player.hud.add_score()
 		map.changeTile(blockCoords)
