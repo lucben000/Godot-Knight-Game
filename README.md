@@ -1,8 +1,9 @@
 # Godot-Knight-Game
 First game dev development
 
-Use arrow keys to move. <br>
-Use spacebar to jump.
+Use Arrow keys to move. <br>
+Use Spacebar to jump. <br>
+Use Esc key to pause.
 
 <ins>Assets used</ins> <br>
 [Brackeys' Platformer Bundle](https://brackeysgames.itch.io/brackeys-platformer-bundle) <br>
